@@ -30,9 +30,9 @@ function App() {
   // }
 
   return (
-    <div ref={formRef} className="bg-grey1 grid lg:grid-cols-2 max-w-full overflow-hidden">
+    <div className="bg-grey1 grid lg:grid-cols-2 max-w-full overflow-hidden">
       <div className="p-8 lg:p-8 grid place-content-center min-h-screen">
-        <header className='my-4'>
+        <header className="my-4">
           <h1 className="text-5xl lg:text-6xl text-center font-extrabold">
             SHIVRAJ<sup>&#174;</sup>
           </h1>
@@ -44,11 +44,14 @@ function App() {
         <p className="text-center m-1">Daily Saving Daily Discount</p>
 
         <div className="w-full absolute bottom-6 left-0 lg:hidden">
-          <MdOutlineSwipeUp className="animate-ping text-xl m-auto" />
+          <MdOutlineSwipeUp className="animate-ping text-2xl m-auto" />
         </div>
       </div>
 
-      <div className="lg:p-8 bg-greenHome1 drop-shadow-2xl min-h-screen lg:rounded-s-[120px] grid place-content-center">
+      <div
+        ref={formRef}
+        className="lg:p-8 bg-greenHome1 drop-shadow-2xl min-h-screen lg:rounded-s-[120px] grid place-content-center"
+      >
         <Outlet />
       </div>
     </div>

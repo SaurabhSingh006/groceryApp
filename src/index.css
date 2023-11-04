@@ -13,7 +13,33 @@
   box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
   color: #4f5e64;
   font-family: 'Inter', sans-serif;
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.038);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #37373784;
+    border-radius: 100px;
+    border: 5px solid transparent;
 }
