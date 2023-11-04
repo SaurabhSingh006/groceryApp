@@ -43,7 +43,7 @@ function App() {
         <p className="text-center m-1">Daily Saving Daily Discount</p>
 
         <div className="w-full absolute bottom-6 left-0 lg:hidden">
-          <MdOutlineSwipeUp className="animate-ping text-md m-auto" />
+          <MdOutlineSwipeUp className="animate-ping text-xl m-auto" />
         </div>
       </div>
 
