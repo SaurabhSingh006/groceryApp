@@ -6,6 +6,14 @@ import home from './assets/home.png';
 import { MdOutlineSwipeUp } from 'react-icons/md'
 
 function App() {
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      formRef.current.scrollIntoView();
+    }, 1500);
+  });
+
   // const [phno, setPhno] = useState('');
   // const [pass, setPass] = useState('');
 
@@ -21,10 +29,10 @@ function App() {
   // }
 
   return (
-    <div className="bg-grey1 grid lg:grid-cols-2 max-w-full overflow-hidden">
+    <div ref={formRef} className="bg-grey1 grid lg:grid-cols-2 max-w-full overflow-hidden">
       <div className="p-12 grid place-content-center min-h-screen">
         <header className='my-4'>
-          <h1 className="text-4xl lg:text-6xl text-center font-extrabold">
+          <h1 className="text-5xl lg:text-6xl text-center font-extrabold">
             SHIVRAJ<sup>&#174;</sup>
           </h1>
           <p className="text-center text-sm">A Division of Super Market</p>
