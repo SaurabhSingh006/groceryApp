@@ -24,7 +24,7 @@ function App() {
     <div className="bg-grey1 grid lg:grid-cols-2 max-w-full overflow-hidden">
       <div className="p-12 grid place-content-center min-h-screen">
         <header className='my-4'>
-          <h1 className="text-6xl text-center font-extrabold">
+          <h1 className="text-4xl lg:text-6xl text-center font-extrabold">
             SHIVRAJ<sup>&#174;</sup>
           </h1>
           <p className="text-center text-sm">A Division of Super Market</p>
