@@ -1,6 +1,7 @@
 // import { useState } from "react";
 // import { createUserWithEmailAndPassword } from "firebase/auth"
 // import { auth } from "./firebase-config";
+import React, { useEffect, useRef } from "react";
 import { Outlet } from 'react-router-dom';
 import home from './assets/home.png';
 import { MdOutlineSwipeUp } from 'react-icons/md'
