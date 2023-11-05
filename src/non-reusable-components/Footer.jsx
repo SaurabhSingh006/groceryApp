@@ -1,4 +1,4 @@
-import { IoHomeOutline, IoHome } from "react-icons/io5";
+import { BiHome, BiSolidHome } from "react-icons/bi";
 import { TbCategory, TbCategoryFilled } from "react-icons/tb";
 import { FaRegListAlt, FaListAlt } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -12,12 +12,9 @@ function Footer() {
     <div className="grid grid-cols-4 place-content-center p-4 absolute bottom-0 w-full drop-shadow-2xl bg-white">
       <Link to="/home">
         {pathname === "/home" ? (
-          <IoHome className="text-2xl text-greenHome1 m-auto" />
+          <BiSolidHome className="text-2xl text-greenHome1 m-auto" />
         ) : (
-          <IoHomeOutline
-            className="text-2xl m-auto"
-            style={{ fontWeight: "500" }}
-          />
+          <BiHome className="text-2xl m-auto" style={{ fontWeight: "500" }} />
         )}
       </Link>
 
