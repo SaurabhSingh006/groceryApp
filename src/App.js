@@ -50,9 +50,9 @@ function App() {
 
       <div
         ref={formRef}
-        className="lg:p-8 bg-greenHome1 drop-shadow-2xl min-h-screen lg:rounded-s-[120px] grid place-content-center"
+        className="bg-greenHome1 p-8 drop-shadow-2xl min-h-screen lg:rounded-s-[120px] grid place-content-center"
       >
-        <Outlet />
+          <Outlet />
       </div>
     </div>
     // <div style={{backgroundColor: 'lightblue'}}>

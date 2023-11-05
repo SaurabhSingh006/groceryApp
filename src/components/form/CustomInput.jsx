@@ -7,21 +7,23 @@ function CustomInput({
   placeholder = label,
   required = false,
   minLength = 20,
+  maxLength = 50,
+  defaultValue = "",
+  updateValue 
 }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(defaultValue);
   const [error, setError] = useState("");
 
   const handleInput = (e) => {
     e.preventDefault();
     setValue(e.target.value);
-    setError(e.target.validationMessage);
+    updateValue(e.target.value);
+    if(error) setError(e.target.validationMessage);
   };
   const handleFocusOut = (e) => {
     e.preventDefault();
     setError(e.target.validationMessage);
   };
-
-  console.log(required);
   return (
     <div className="w-full p-2">
       <label
@@ -30,8 +32,9 @@ function CustomInput({
       >{`${label} ${required ? "*" : ""}`}</label>
       <input
         minLength={minLength}
+        maxLength={maxLength}
         value={value}
-        onChange={handleInput}
+        onInput={handleInput}
         onBlur={handleFocusOut}
         id={id}
         name={id}

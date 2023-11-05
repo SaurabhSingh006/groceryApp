@@ -2,22 +2,37 @@ import React, { useState } from "react";
 import Button from "../../components/button/Button";
 import CustomInput from "../../components/form/CustomInput";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase-config";
 
 function SignUp() {
   const navigate = useNavigate();
   const [signupBtnLoad, setSignupBtnLoad] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
+    if(password !== confirmPassword) {
+      return setSignupBtnLoad(false);
+    }
     setSignupBtnLoad(true);
+    try {
+      const user = await createUserWithEmailAndPassword(auth, `${email}@gmail.com`, password);
+      console.log(user)
+    } catch (error) {
+      console.log(error.message)
+    }
     setTimeout(() => {
-      navigate("/");
+      setSignupBtnLoad(false);
+      navigate("/home");
     }, 2000);
   };
 
   return (
-    <div className="animate-fade-out p-6 rounded-xl drop-shadow-lg bg-grey1">
+    <div className="md:w-[350px] animate-fade-out p-6 rounded-xl drop-shadow-lg bg-grey1">
       <h3 className="text-4xl font-bold m-2">Sign Up</h3>
       <p className="m-2 mb-4 text-sm">
         Already have an account? &nbsp;
@@ -31,18 +46,23 @@ function SignUp() {
 
       <form onSubmit={handleSubmit}>
         <CustomInput
-          id="username"
-          label="Email"
-          type="email"
+          id="email"
+          label="Phone No"
+          type="text"
           required
-          minLength="6"
-        />
+          minLength="10"
+          maxLength="10"
+          defaultValue={email}
+          updateValue={setEmail}
+        /> 
         <CustomInput
           id="password"
           label="Password"
           type="password"
           required
           minLength="8"
+          defaultValue={password}
+          updateValue={setPassword}
         />
         <CustomInput
           id="confirmPassword"
@@ -50,6 +70,8 @@ function SignUp() {
           type="password"
           required
           minLength="8"
+          defaultValue={confirmPassword}
+          updateValue={setConfirmPassword}
         />
 
         <br />
